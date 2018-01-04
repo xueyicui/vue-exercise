@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+   1. 模板的理解：
+        动态的html页面
+        包含了一些js语法代码
+            双大括号表达式：{{表达式}}
+            指令（以v-开头 的自定义标签属性）：v-for="js表达式"
+-->
+<div id="app">
+    <h2>双大括号表达式</h2>
+    <p>{{msg}}</p>
+    <p>{{msg.toUpperCase()}}</p>
+
+    <h2>指令一：强制数据绑定</h2>
+    <a :href="url">百度</a>
+    <h2>指令二：绑定事件监听</h2>
+    <input type="text" v-on:keyup.enter="handKeyUp">
+
+
+</div>
+
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#app",
+        data: {
+            msg: "hello vue",
+            url: 'www.baidu.com'
+        },
+        methods: {
+            handKeyUp(event) {
+                alert(event.target.value)
+            }
+        }
+    })
+</script>
+</body>
+</html>
